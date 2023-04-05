@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"> 
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+  <nav th:replace="/fragments/nav :: nav"></nav>
+
+
+      <form action="/Libro/registro" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">ISBN</label>
+          <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="isbn">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" name="titulo">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Ejemplares</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" name="ejemplares">
+          </div>
+
+          <select class="form-select" aria-label="Default select example" name="idAutor">
+            <option th:each="autor: ${autores}"
+            th:value="${autor.id}"
+            th:text="${autor.nombre}"
+            />
+          </select>
+          <select class="form-select" aria-label="Default select example" name="idEditorial">
+            <option th:each="editorial: ${editoriales}"
+            th:value="${editorial.id}"
+            th:text="${editorial.nombre}"
+            />
+          </select>
+        
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+
+</body>
+</html>

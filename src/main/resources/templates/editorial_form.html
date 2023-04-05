@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  
+  <head th:replace="/fragments/head :: head"></head>
+
+<body>
+  <nav th:replace="/fragments/nav :: nav"></nav>
+
+  
+      <form action="/Editorial/registro" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre">
+         
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+
+</body>
+</html>

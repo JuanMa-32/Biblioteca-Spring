@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+  <nav th:replace="/fragments/nav :: nav"></nav>
+
+
+      <form th:action="@{/Libro/modificar/__${libro.isbn}__}" method="POST">
+        <div class="mb-3">
+          
+          <input hidden type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="isbn"  th:value="${libro.isbn}">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" name="titulo"  th:value="${libro.titulo}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Ejemplares</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" name="ejemplares"  th:value="${libro.ejemplares}">
+          </div>
+
+          <select class="form-select" aria-label="Default select example" name="idAutor">
+            <option th:each="autor: ${autores}"
+            th:value="${autor.id}"
+            th:text="${autor.nombre}"
+            />
+          </select>
+          <select class="form-select" aria-label="Default select example" name="idEditorial">
+            <option th:each="editorial: ${editoriales}"
+            th:value="${editorial.id}"
+            th:text="${editorial.nombre}"
+            />
+          </select>
+        
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+
+
+        <div th:if="${error != null}" class="card text-white bg-danger mb-3 ">
+
+          <div class="car-body">
+              <h5 class="card-title">Error !!!</h5>
+              <p class="card-text" th:text="${error}"></p>
+          </div>
+
+      </div>
+
+
+      <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3  ">
+
+          <div class="car-body">
+              <h5 class="card-title">Exito !</h5>
+              <p class="card-text" th:text="${exito}"></p>
+          </div>
+
+      </div>
+
+      </form>

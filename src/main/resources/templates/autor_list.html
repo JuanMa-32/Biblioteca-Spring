@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+  <nav th:replace="/fragments/nav :: nav"></nav>
+
+
+
+
+    <table class="table table-success table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Nombre </th>
+            <th sec:authorize="hasRole('ADMIN')">Acciones</th>
+        </thead>
+        <tbody th:each="autor : ${autores}">
+            <td th:text="${autor.id}"></td>
+            <td th:text="${autor.nombre}"></td>
+            <td >
+              <a th:href="@{/Autor/modificar/__${autor.id}__}" sec:authorize="hasRole('ADMIN')">Modificar</a>
+            </td>
+        </tbody>
+      </table>
+    
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+  <nav th:replace="/fragments/nav :: nav"></nav>
+
+
+      <form th:action="@{/Autor/modificar/__${autor.id}__}" method="POST">
+        <div class="mb-3">
+           <input hidden th:value="${id}" name="id">
+          <label for="exampleInputEmail1" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre" th:value="${autor.nombre}">
+        
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+
+
+    
+</body>
+</html>

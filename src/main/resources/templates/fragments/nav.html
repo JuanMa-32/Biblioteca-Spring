@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BIBLIOTECA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+         
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${session.usuariosession != null}">
+             Libro
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" th:href="@{/Libro/registrar}" sec:authorize="hasRole('ADMIN')">Cargar libro</a></li>
+              <li><a class="dropdown-item" th:href="@{/Libro/listar}">Mostrar Libros</a></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${session.usuariosession != null}">
+              Editorial
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" th:href="@{/Editorial/registrar}" sec:authorize="hasRole('ADMIN')">Cargar editorial</a></li>
+              <li><a class="dropdown-item" th:href="@{/Editorial/listar}">Mostrar editoriales</a></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${session.usuariosession != null}">
+              Autor
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" th:href="@{/Autor/registrar}" sec:authorize="hasRole('ADMIN')">Cargar autor</a></li>
+              <li><a class="dropdown-item" th:href="@{/Autor/listar}">Mostrar autores</a></li>
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group">
+      
+      <a th:href="@{/login}" class="btn btn-primary" th:if="${session.usariosession == null}">Iniciar sesion</a>
+      <a th:href="@{/registrar}" class="btn btn-primary" th:if="${session.usariosession == null}">Crear cuenta</a>
+    </div>
+  </nav>

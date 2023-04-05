@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BIBLIOTECA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+         
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${session.usuariosession != null}">
+             Libro
+            </a>
+            <ul class="dropdown-menu">
+             
+              <li><a class="dropdown-item" th:href="@{/Libro/listar}">Mostrar Libros</a></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${session.usuariosession != null}">
+              Editorial
+            </a>
+            <ul class="dropdown-menu">
+             
+              <li><a class="dropdown-item" th:href="@{/Editorial/listar}">Mostrar editoriales</a></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${session.usuariosession != null}">
+              Autor
+            </a>
+            <ul class="dropdown-menu">
+              
+              <li><a class="dropdown-item" th:href="@{/Autor/listar}">Mostrar autores</a></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${session.usuariosession != null}">
+              Perfil
+            </a>
+            <ul class="dropdown-menu">
+              
+              <li><a class="dropdown-item" th:href="@{/perfil}">Editar Perfil</a></li>
+              <li><a class="nav-link active" aria-current="page" th:href="@{/logout}">cerrar sesion</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group">
+      
+      
+    </div>
+  </nav>
+
+         
+           
+         
+     
+            <a>
+              <img th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" alt="imagen perfil">
+            </a>
+   
+</body>
+</html>
